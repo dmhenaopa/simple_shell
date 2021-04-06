@@ -1,0 +1,36 @@
+.\" Manpage for simple_shell
+.TH simple_shell 3 "April 2021" "Version 1.0" "User Commands"
+
+.SH NAME
+simple_shell \- interpret and execute lines of commands
+.SH SYNOPSIS
+.PP
+[COMMAND] [OPTION]...
+
+.SH DESCRIPTION
+
+simple_shell is a program that read commands and arguments given by the user through the standard input and execute them.
+
+When the simple_shell can't find a command or doesn't recognize an option it will print a message error.
+
+.SH COMMANDS
+
+.IT
+.B ls
+-list the contents od the directory
+
+.B pwd
+- prints the name of the current working directory
+
+.B which
+- shows the full path of (shell) commands
+
+.B echo
+- shows a line of text
+
+.SH REPORT PROBLEMS TO:
+@dmhenaopa, @jeanpierreba and @stevengm45 in GitHub.
+.SH AUTHORS:
+WRITTEN BY: Diana Henao, Jean Pierre and Stiven Gonzalez.
+.SH COPYRIGHT
+Copyright © 2021 Holberton School. This is Free Software : You are Free To Change and redistribute it...
