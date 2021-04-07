@@ -2,38 +2,21 @@
 
 /**
 * main - UNIX command line interpreter
-* @ac: number of arguments we pass to the program
-* @av: value of arguments
 * Return: 0
 */
 
-int main(int ac, char **av)
+int main(void)
 {
-	char **buffer = NULL;
 	char *line = NULL;
-	int i;
-	ssize_t sizeline = 0;
 	size_t buf = 0;
-
-	buffer = mallocargument();
+	ssize_t size_char = 0;
 
 	do {
-		write(1, prompt, 5);
-	  getline(&line, &buf, stdin);
-	printf("antes de entrar a tokenizator");
+	write(1, prompt, 4);
+	size_char = getline(&line, &buf, stdin);
+	remove_new_line(&line, size_char);
 	tokenizator(line);
-	} while (1);
+	} while (*line != EOF);
+
 	return (0);
-}
-
-/**
-* mallocargument - save space in the memory to the arguments
-* Return: pointer to the memory allocated
-*/
-
-char **mallocargument(void)
-{
-char **buffer = NULL;
-buffer = malloc(sizeof(buffer) * 1024);
-return (buffer);
 }
