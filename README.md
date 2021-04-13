@@ -2,7 +2,7 @@
 
 # Super simple shell
 
-_In this this github repository you will find a simple UNIX command interpreter, just as the shell of Linux, but simpler and without somethings_.
+_In this this github repository you will find a simple UNIX command interpreter, just as the shell of Linux, but simpler and without some things_.
 
 ---
 
@@ -13,6 +13,11 @@ _The way to compile this program is very simple, just go to the directory where 
 ```
 gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
 ```
+_Or you can just compile without warning flags and just compile it in the next way:_
+
+```
+gcc *.c -o hsh
+```
 
 ---
 
@@ -22,15 +27,15 @@ _Here you will find how can you use the super simple shell, for example how to r
 
 ```c
  $ ./hsh
- ($ ) ls
+ ($)ls
  file1  file2  filename.c  header.h  tests
- ($ ) pwd
+ ($)pwd
  /home/vagrant
- ($ ) exit
+ ($)exit
  $
 ```
 
-_You can also work with the super simple shell in non-interactive mode in the next way:_
+_If you want to exit you can put exit or do Ctrl + D in your keyboard, you can also work with the super simple shell in non-interactive mode in the next way:_
 
 ```c
 $ echo "/bin/ls" | ./hsh
@@ -39,6 +44,21 @@ $ cat test_ls_2 | ./hsh
 This is the content of the file test_ls_2
 $
 ```
+
+# Files in this repository
+
+File|Description
+:---:|:---|
+[built_ins.c](./built_ins.c)| Contains the functions to execute the built-ins like env.
+[execute_function.c](./execute_function.c)| In this file we have the function to execute every command we pass by the standard input.
+[get_path.c](./get_path.c)| We will find a function to search the full path from the environment.
+[helper_funcs.c](./helper_funcs.c)| This file contains functions that help us with some functions we can't use, like strdup, strcat, strcpy, and other function.
+[helper_funcs2.c](./helper_funcs2.c)| Like helper_funcs but this contains strcmp, a function to allocate memory, a puts function and a signal function.
+[main.c](./main.c)| In the main file you will find the infinite loop and some statements to end of files / non interactive mode and funtions calls.
+[putchar_func.c](./putchar_func.c)| This file contain our own putchar function.
+[selector.c](./selector.c)| There we will find a struct with the built-ins cases, like exit.
+[tokenizator.c](./tokenizator.c)| This file contains a function to help us to tokenize the line we get from the user.
+[verify_acces.c](./verify_acces.c)| The function inside this file will verify if the the file exists.
 
 ---
 
