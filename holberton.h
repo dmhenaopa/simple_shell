@@ -13,6 +13,8 @@
 #define DELIMITER_ " "
 #define DELIMITER ":"
 
+extern char **environ;
+
 /**
 * struct builtins - built-ins selector
 * @s: built-in we get from the user
