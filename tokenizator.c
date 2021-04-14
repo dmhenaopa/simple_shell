@@ -12,22 +12,23 @@
 
 void tokenizator(char *line, char **argv, int count)
 {
-int i;
-char *token = NULL, **buffer = NULL;
+	int i;
+	char *token = NULL, **buffer = NULL;
 
-buffer = allocate_memory();
-token = strtok(line, DELIMITER_);
+	buffer = allocate_memory();
+	token = strtok(line, DELIMITER_);
 
-for (i = 0; token;)
-{
-buffer[i++] = token;
-token = strtok(NULL, DELIMITER_);
-}
-if (!(buffer[0][0] == '/'))
-get_path(buffer, argv, count);
-else if (buffer[0][0] == '/')
-{
-verify_access(buffer[0], buffer, argv, count);
-}
-free(buffer);
+	for (i = 0; token;)
+	{
+		buffer[i++] = token;
+		token = strtok(NULL, DELIMITER_);
+	}
+	buffer[i] = NULL;
+	if (!(buffer[0][0] == '/'))
+		get_path(buffer, argv, count);
+	else if (buffer[0][0] == '/')
+	{
+		verify_access(buffer[0], buffer, argv, count);
+	}
+	free(buffer);
 }
