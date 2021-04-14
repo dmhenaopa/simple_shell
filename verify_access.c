@@ -17,6 +17,7 @@ int verify_access(char *full_path, char **buffer, char **argv, int count)
 	int verify_access, access_flag, status;
 	pid_t id_child = 0;
 	(void)argv;
+	(void) count;
 
 	access_flag = 0;
 	verify_access = access(full_path, F_OK);
@@ -44,7 +45,11 @@ int verify_access(char *full_path, char **buffer, char **argv, int count)
 */
 void print_err(int count, char **argv, char **buffer)
 {
-		/*else if (!(isatty(STDIN_FILENO)))*/
+	int verify = 0;
+
+	verify = verify_access(*buffer, buffer, argv, count);
+	if (verify != 0)
+	{
 		_puts(argv[0]);
 		_puts(separator);
 		putchar_func(count + '0');
@@ -53,4 +58,5 @@ void print_err(int count, char **argv, char **buffer)
 		_puts(": not found");
 		_puts("\n");
 		exit(127);
+	}
 }

@@ -24,10 +24,8 @@ char *get_path(char **buffer, char **argv, int count)
 			full_path = strtok(dup_environ, DELIMITER);
 			if (buffer[0][0] == '.' && buffer[0][1] == '/')
 			{
-				verify = verify_access(*buffer, buffer, argv, count);
-				if (verify != 0)
-					print_err(count, argv, buffer);
-					break;
+				print_err(count, argv, buffer);
+				break;
 			}
 			while (full_path)
 			{
@@ -49,4 +47,5 @@ char *get_path(char **buffer, char **argv, int count)
 		}
 	}
 	free(dup_environ);
+	return (full_path);
 }
