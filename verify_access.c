@@ -16,7 +16,7 @@ int verify_access(char *full_path, char **buffer, char **argv, int count)
 {
 	int verify_access, access_flag, status;
 	pid_t id_child = 0;
-	(void)count;
+	(void)argv;
 
 	access_flag = 0;
 
@@ -24,13 +24,13 @@ int verify_access(char *full_path, char **buffer, char **argv, int count)
 
 	if (verify_access == 0)
 	{
-	id_child = fork();
-	if (id_child == 0)
-		execute_function(full_path, buffer);
-	else if (id_child > 0)
-		wait(&status);
-	else
-		perror("Error");
+		id_child = fork();
+		if (id_child == 0)
+			execute_function(full_path, buffer);
+		else if (id_child > 0)
+			wait(&status);
+		else
+			perror("Error");
 	}
 
 	else if (!(isatty(STDIN_FILENO)))
