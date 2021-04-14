@@ -9,9 +9,9 @@
 
 int execute_function(char *full_path, char **buffer)
 {
-if (execve(full_path, buffer, NULL) == -1)
-{
-exit(EXIT_FAILURE);
-}
-return (0);
+	if (execve(full_path, buffer, NULL) == -1)
+	{
+		exit(127);
+	}
+	return (0);
 }
