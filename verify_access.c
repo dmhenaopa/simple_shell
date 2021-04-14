@@ -14,9 +14,9 @@
 
 int verify_access(char *full_path, char **buffer, char **argv, int count)
 {
-	(void)argv;
 	int verify_access, access_flag, status;
 	pid_t id_child = 0;
+	(void)count;
 
 	access_flag = 0;
 
@@ -49,8 +49,9 @@ int verify_access(char *full_path, char **buffer, char **argv, int count)
 		_puts(": not found");
 		_puts("\n");
 	}
+
 	else
-	perror(argv[0]);
+		access_flag = -1;
 
 	return (access_flag);
 }
