@@ -15,8 +15,10 @@
 int verify_access(char *full_path, char **buffer, char **argv, int count)
 {
 	(void)argv;
-	int verify_access, access_flag = 0, status;
+	int verify_access, access_flag, status;
 	pid_t id_child = 0;
+
+	access_flag = 0;
 
 	verify_access = access(full_path, F_OK);
 
