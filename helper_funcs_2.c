@@ -30,7 +30,7 @@ char **allocate_memory(void)
 {
 	char **buffer = NULL;
 
-	buffer = malloc(sizeof(char *));
+	buffer = malloc(sizeof(char *) * 1024);
 	return (buffer);
 }
 
