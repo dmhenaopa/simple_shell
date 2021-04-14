@@ -31,25 +31,26 @@ int verify_access(char *full_path, char **buffer, char **argv, int count)
 		else
 			exit(127);
 	}
-	else if (!(isatty(STDIN_FILENO)))
-	{
+		else
+		access_flag = -1;
+
+	return (access_flag);
+}
+/**
+* print_err - print error in non-interactive mode
+* @count: number of line
+* @argv: name of the file
+* @buffer: command we pass to the program
+*/
+void print_err(int count, char **argv, char **buffer)
+{
+		/*else if (!(isatty(STDIN_FILENO)))*/
 		_puts(argv[0]);
 		_puts(separator);
-		if (count < 10)
-			putchar_func(count + '0');
-		else if (count >= 10)
-		{
-			putchar_func((count / 10) + '0');
-			putchar_func((count % 10) + '0');
-		}
+		putchar_func(count + '0');
 		_puts(separator);
 		_puts(*buffer);
 		_puts(": not found");
 		_puts("\n");
 		exit(127);
-	}
-	else
-		access_flag = -1;
-
-	return (access_flag);
 }

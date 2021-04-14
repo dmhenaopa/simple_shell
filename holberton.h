@@ -9,7 +9,7 @@
 #include <sys/wait.h>
 #include <signal.h>
 #define separator ": "
-#define prompt ("($)")
+#define prompt ("($) ")
 #define DELIMITER_ " "
 #define DELIMITER ":"
 
@@ -43,5 +43,6 @@ int putchar_func(char character);
 int _strcmp(char *s1, char *s2);
 void controlador(int numeroSenhal);
 void _puts(char *str);
+void print_err(int count, char **argv, char **buffer);
 
 #endif
