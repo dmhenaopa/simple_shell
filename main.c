@@ -21,27 +21,21 @@ int main(int argc __attribute__((unused)), char **argv)
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-		{
 			write(1, prompt, 4);
-		}
 		counter_error++;
 		size_char = getline(&line, &buf, stdin);
 
 		if (size_char == EOF || (line[0] == 'e' && line[3] == 't'))
 		{
 			if (size_char == EOF && isatty(STDIN_FILENO))
-			{
 				putchar_func('\n');
-			}
 			free(line);
 			exit(EXIT_SUCCESS);
 		}
 		if (*line == ' ')
-		continue;
-		if (*line == '\n')
-		{
 			continue;
-		}
+		if (*line == '\n')
+			continue;
 
 		remove_new_line(&line, size_char);
 		if (line[0] == '/')
