@@ -9,25 +9,24 @@
  */
 char *get_path(char **buffer, char **argv, int count)
 {
-	int i, verify, counter = 0;
-	char *full_path = NULL, *dup_environ = NULL, tmp[1024];
+	int i, verify;
+	char *full_path = NULL, *dup_environ = NULL, tmp[1024], pwd[1024];
+	size_t bufsize = 1024;
 
+	getcwd(pwd, bufsize);
 	verify = 0;
 	for (i = 0; environ[i]; i++)
 	{
 		if (environ[i][0] == 'P' && environ[i][1] == 'A' && environ[i][3] == 'H')
 		{
 			dup_environ = _strdup(environ[i] + 5);
+			_strcat(dup_environ, DELIMITER);
+			_strcat(dup_environ, pwd);
 			full_path = strtok(dup_environ, DELIMITER);
-			for (i = 0; full_path[i] != '\0'; i++)
-				counter++;
-			counter = counter - 1;
 			while (full_path)
 			{
 				_strcpy(tmp, full_path);
-
-				if (full_path[counter] != '/')
-					_strcat(tmp, "/");
+				_strcat(tmp, "/");
 				_strcat(tmp, buffer[0]);
 				verify = verify_access(tmp, buffer, argv, count);
 				if (verify == 0)

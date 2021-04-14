@@ -9,7 +9,7 @@
 #include <sys/wait.h>
 #include <signal.h>
 #define separator ": "
-#define prompt ("($) ")
+#define prompt ("($)")
 #define DELIMITER_ " "
 #define DELIMITER ":"
 
