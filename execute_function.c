@@ -11,7 +11,7 @@ int execute_function(char *full_path, char **buffer)
 {
 	if (execve(full_path, buffer, NULL) == -1)
 	{
-		exit(EXIT_FAILURE);
+		exit(127);
 	}
-return (0);
+	return (0);
 }
