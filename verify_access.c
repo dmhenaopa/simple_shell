@@ -30,10 +30,12 @@ int verify_access(char *full_path, char **buffer, char **argv, int count)
 		else if (id_child > 0)
 			wait(&status);
 		else
-			exit(127);
+			perror("Could not create process");
 	}
 		else
-		access_flag = -1;
+		{
+			access_flag = -1;
+		}
 
 	return (access_flag);
 }
