@@ -10,27 +10,27 @@
 
 char *_strdup(char *str)
 {
-unsigned int i, j;
-char *buffer = NULL;
+	unsigned int i, j;
+	char *buffer = NULL;
 
-if (str == NULL)
-return (NULL);
+	if (str == NULL)
+		return (NULL);
 
-i = 0;
-while (*(str + i))
-{
-i++;
-}
-buffer = malloc(sizeof(char *) * i + 1);
+	i = 0;
+	while (*(str + i))
+	{
+		i++;
+	}
+	buffer = malloc(sizeof(char *) * i + 1);
 
-if (buffer == NULL)
-return (NULL);
+	if (buffer == NULL)
+		return (NULL);
 
-for (j = 0; j <= i; j++)
-{
-*(buffer + j) = *(str + j);
-}
-return (buffer);
+	for (j = 0; j <= i; j++)
+	{
+		*(buffer + j) = *(str + j);
+	}
+	return (buffer);
 }
 
 /**
@@ -41,21 +41,20 @@ return (buffer);
  */
 char *_strcat(char *dest, char *src)
 {
-int i = 0;
-int j = 0;
+	int i = 0;
+	int j = 0;
 
-while (dest[i] != '\0')
-i++;
-while (src[j] != '\0')
-{
-dest[i] = src[j];
-j++;
-i++;
+	while (dest[i] != '\0')
+		i++;
+	while (src[j] != '\0')
+	{
+		dest[i] = src[j];
+		j++;
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
-dest[i] = '\0';
-return (dest);
-}
-
 
 /**
  * *_strcpy - copies string src to buffer pointed to by dest
@@ -66,14 +65,14 @@ return (dest);
  **/
 char *_strcpy(char *dest, char *src)
 {
-int i;
-for (i = 0; i >= 0; i++)
-{
-dest[i] = src[i];
-if (src[i] == '\0')
-return (dest);
-}
-return (dest);
+	int i;
+	for (i = 0; i >= 0; i++)
+	{
+		dest[i] = src[i];
+		if (src[i] == '\0')
+			return (dest);
+	}
+	return (dest);
 }
 
 /**
@@ -83,5 +82,5 @@ return (dest);
  */
 void remove_new_line(char **line, ssize_t size_line)
 {
-(*line)[size_line - 1] = '\0';
+	(*line)[size_line - 1] = '\0';
 }
