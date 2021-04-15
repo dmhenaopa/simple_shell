@@ -27,11 +27,16 @@ _Here you will find how can you use the super simple shell, for example how to r
 
 ```c
  $ ./hsh
- ($)ls
+ ($) ls
  file1  file2  filename.c  header.h  tests
- ($)pwd
+ ($) pwd
  /home/vagrant
- ($)exit
+ ($) ls -z
+ ls: invalid option -- 'z'
+ Try 'ls --help' for more information.
+ ($) NotACommand
+ ./hsh: no such file or directory
+ ($) exit
  $
 ```
 
@@ -40,8 +45,10 @@ _If you want to exit you can put exit or do Ctrl + D in your keyboard, you can a
 ```c
 $ echo "/bin/ls" | ./hsh
 file1  file2  filename.c  header.h  tests
-$ cat test_ls_2 | ./hsh
-This is the content of the file test_ls_2
+$ cat "/bin/pwd" | ./hsh
+/home/vagrant
+$ echo "./hbtn_ls /var" | ./hsh
+./hsh: 1: ./hbtn_ls: not found
 $
 ```
 
@@ -53,9 +60,8 @@ File|Description
 [execute_function.c](./execute_function.c)| In this file we have the function to execute every command we pass by the standard input.
 [get_path.c](./get_path.c)| We will find a function to search the full path from the environment.
 [helper_funcs.c](./helper_funcs.c)| This file contains functions that help us with some functions we can't use, like strdup, strcat, strcpy, and other function.
-[helper_funcs2.c](./helper_funcs2.c)| Like helper_funcs but this contains strcmp, a function to allocate memory, a puts function and a signal function.
+[helper_funcs2.c](./helper_funcs2.c)| Like helper_funcs but this contains strcmp, a function to allocate memory, a puts function, a putchar function and a signal function.
 [main.c](./main.c)| In the main file you will find the infinite loop and some statements to end of files / non interactive mode and funtions calls.
-[putchar_func.c](./putchar_func.c)| This file contain our own putchar function.
 [selector.c](./selector.c)| There we will find a struct with the built-ins cases, like exit.
 [tokenizator.c](./tokenizator.c)| This file contains a function to help us to tokenize the line we get from the user.
 [verify_acces.c](./verify_acces.c)| The function inside this file will verify if the the file exists.
@@ -64,7 +70,7 @@ File|Description
 
 # Manual Page
 
-_If you want to see more information about the super simple shell you can open the manual page with the next command._
+_If you want to see more information about the simple shell you can open the manual page with the next command._
 
 ```
 man ./man_1_simple_shell
