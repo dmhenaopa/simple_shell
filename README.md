@@ -2,7 +2,7 @@
 
 # Super simple shell
 
-_In this this github repository you will find a simple UNIX command interpreter, just as the shell of Linux, but simpler and without some things_.
+_In this github repository you will find a simple UNIX command interpreter, just as the shell of Linux, but simpler and without some things_.
 
 ---
 
@@ -68,6 +68,11 @@ File|Description
 
 ---
 
+# Flowchart
+
+![Flowchart Image](https://media.discordapp.net/attachments/826839928331436052/832293986902343680/SHELL.png?width=474&height=436)
+
+---
 # Manual Page
 
 _If you want to see more information about the simple shell you can open the manual page with the next command._
