@@ -4,29 +4,74 @@
 .SH NAME
 simple_shell \- interpret and execute lines of commands
 .SH SYNOPSIS
-.PP
+.B ./hsh
+
 [COMMAND] [OPTION]...
 
 .SH DESCRIPTION
 
+simple_shell is a simple implementation of the standard command interpreter for the system that receives comands from the standard input or a file. This version has many features that make it similar in some aspects to the standard shell, but it is
+a simple program to learn its operation. Only some standard shell features have been incorporated. 
 simple_shell is a program that read commands and arguments given by the user through the standard input and execute them.
-
 When the simple_shell can't find a command or doesn't recognize an option it will print a message error.
+
+.SH INVOCATION
+.B simple_shell
+may be invoked with the same functionality in
+.I interactive
+or
+.I non-interactive
 
 .SH COMMANDS
 
 .IT
+.B Example
 .B ls
 -list the contents od the directory
 
 .B pwd
+
 - prints the name of the current working directory
 
 .B which
+
 - shows the full path of (shell) commands
 
 .B echo
+
 - shows a line of text
+
+.B Example
+.IP
+
+$./hsh
+
+($)pwd
+
+/home/vagrant/simple_shell
+
+($)/bin/pwd
+
+/home/vagrant/simple_shell
+
+($)which ls
+
+/bin/ls
+
+($)echo Hello World
+
+Hello World
+
+
+.SH BUILT-INS
+.B Examples
+
+.B exit
+quits the program, exit the shell
+
+.B env
+prints the environment variables
+
 
 .SH REPORT PROBLEMS TO:
 @dmhenaopa, @jeanpierreba and @stevengm45 in GitHub.
